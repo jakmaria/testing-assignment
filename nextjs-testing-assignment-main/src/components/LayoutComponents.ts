@@ -96,7 +96,7 @@ export const StyledVanTypes = styled.div`
 
   li {
     width: 25%;
-    height: 88px;
+    min-height: 45%;
     border: 2px solid #edeae3;
     border-radius: 8px;
     padding: 8px;
@@ -137,8 +137,7 @@ export const StyledFilterTab = styled.div`
   gap: 1rem;
   border-top: 2px solid #edeae3;
   border-bottom: 2px solid #edeae3;
-  padding: 0px 100px 0px 100px;
-  height: 55vh;
+  padding: 0px 6% 0px 6%;
 `;
 
 export const StyledInstantBookToggle = styled.div`
@@ -200,9 +199,71 @@ export const DropdownToggle = styled.select`
 `;
 
 export const StyledHeader = styled.div`
-  padding: 20px 100px 20px 100px;
+  padding: 20px 6% 20px 6%;
+`;
+
+export const StyledVanTile = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #edeae3;
+  border-radius: 8px;
+
+  img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #ff5e55;
+    letter-spacing: 1px;
+    line-height: 0.8rem;
+  }
+  h3 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    margin: 0 0 4% 0;
+  }
+`;
+
+export const VanInfo = styled.div`
+  padding: 2% 4% 4% 4%;
+
+  .price{
+    display:flex;
+    justify-content: space-between;
+  }
+`;
+
+export const VanFeatures = styled.div`
+  border-top: 2px solid #edeae3;
+  border-bottom: 2px solid #edeae3;
+  display: flex;
+  flex-direction: column;
+
+  .equipment {
+    display: flex;
+    justify-content: flex-start;
+    gap: 5%;
+    padding: 0.3rem;
+  }
+
+  h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    color: #1f2244;
+    margin: 0;
+    padding: 2% 0%;
+  }
 `;
 
 export const StyledVanList = styled.div`
-  padding: 35px 100px 20px 100px;
+  padding: 35px 6% 20px 6%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3%
 `;
