@@ -1,55 +1,41 @@
-import { useState } from 'react';
-import { StyledPriceSlider } from './LayoutComponents';
+import { useState, useEffect } from 'react';
+import { PriceRangeContainer, StyledPriceSlider, ValueSpan, ValuesDiv } from './LayoutComponents';
+import Slider from 'react-slider';
+
+const MIN = 1200;
+const MAX = 10000;
 
 export default function PriceSlider() {
-  const [minValue, setMinValue] = useState('');
-  const [maxValue, setMaxValue] = useState('');
+  const [values, setValues] = useState([MIN, MAX]);
+  console.log('values', values);
 
-  const handleMinValueChange = (event) => {
-    setMinValue(event.target.value);
-  };
-
-  const handleMaxValueChange = (event) => {
-    setMaxValue(event.target.value);
-  };
-
+  useEffect(() => {
+    console.log(values);
+  }, [values]);
 
   return (
     <StyledPriceSlider>
-      <h1>Cena za den</h1>
-      <p>slideeeer</p>
-      <div className="priceInputs">
-        <div>
-          <span>Min</span>
-          <input onChange={(e) => setMinValue(e.target.value)} type="number" value={minValue} />
-        </div>
-        <div>
-          <span>Max</span>
-          <input onChange={(e) => setMaxValue(e.target.value)} type="number" value={maxValue} />
-        </div>
-      </div>
-      {/* Slider */}
-      <div className="mb-4">
-        <div className='slider relative h-1 rounded-md bg-gray-300'>
-
-        </div>
-        <div className="range-input relative">
-          <input
-            type="range"
-            value={minValue}
-            className="range-min absolute w-full -top-1 h-1 bg-transparent appearance-none pointer-events-none"
-          />
-          <input
-            type="range"
-            value={maxValue}
-            className="range-max absolute w-full -top-1 h-1 bg-transparent appearance-none pointer-events-none"
-          />
-        </div>
-      </div>
-      <ul>
-        <li>Lowest price</li>
-        <li>Highest price</li>
-      </ul>
+      <PriceRangeContainer>
+        <h1>Cena za den</h1>
+        <Slider
+          className="slider"
+          onChange={setValues}
+          value={values}
+          min={MIN}
+          max={MAX}
+          step={100}
+        />
+        <ValuesDiv>
+          <ValueSpan>
+            <span>{values[0]}</span>
+            <span className="currency">Kč</span>
+          </ValueSpan>
+          <ValueSpan>
+            <span>{values[1]}</span>
+            <span className="currency">Kč</span>
+          </ValueSpan>
+        </ValuesDiv>
+      </PriceRangeContainer>
     </StyledPriceSlider>
   );
 }

@@ -3,6 +3,11 @@ import styled from 'styled-components';
 export const StyledPriceSlider = styled.div`
   display: flex;
   flex-direction: column;
+  border-right: 2px solid #edeae3;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 10px;
+  width: 30%;
 
   h1 {
     font-size: 16px;
@@ -11,30 +16,63 @@ export const StyledPriceSlider = styled.div`
     letter-spacing: 0px;
     color: #9c8c8c;
     opacity: 1;
-    margin-bottom: 16px;
+    margin-bottom: 30px;
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
   }
 
-  .priceInputs {
-    display: flex;
-    justify-content: space-between;
-    justify-items: center;
-    margin-top: 6px;
-    margin-bottom: 6px;
-  }
-  div input {
-    width: 156px;
-    height: 48px;
-    border: 2px solid #edeae3;
+  .slider {
+    width: 100%;
+    height: 4px;
+    background-color: #edeae3;
+    border-radius: 2px;
+    margin-bottom:32px;
   }
 
-  div .range-input{
-    position:relative;
+  .slider .thumb{
+    width: 24px;
+    height:24px;
+    cursor: grab;
+    background:#119383; 
+    border-radius: 50%;
+    border: 2px solid #119383:
+  }
+  .slider .thumb-0, .thumb-1{
+    top:-10px;
+  }
+
+  .slider .track-1{
+    height: 4px;
+    background:#119383; 
+  }
+`;
+
+export const PriceRangeContainer = styled.div``;
+
+export const ValuesDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const ValueSpan = styled.span`
+  border: 2px solid #edeae3;
+  border-radius: 8px;
+  padding: 0.5rem;
+  width: 48%;
+  display: flex;
+  justify-content: space-between;
+
+  .currency {
+    color: #9c8c8c;
   }
 `;
 
 export const StyledVanTypes = styled.div`
+  border-right: 2px solid #edeae3;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 15px;
+
   h1 {
     font-size: 16px;
     color: #1f2244;
@@ -98,15 +136,17 @@ export const StyledFilterTab = styled.div`
   gap: 16px;
   border-top: 2px solid #edeae3;
   border-bottom: 2px solid #edeae3;
-  padding: 20px 100px 20px 100px;
+  padding: 0px 100px 0px 100px;
 `;
 
 export const StyledInstantBookToggle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 176px;
+  width: 20%;
   height: 85px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 
   .heading {
     display: flex;

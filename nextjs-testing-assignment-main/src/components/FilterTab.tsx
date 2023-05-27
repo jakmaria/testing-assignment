@@ -8,7 +8,7 @@ export default function FilterTab() {
     <StyledFilterTab>
       <PriceSlider />
       <VanTypes />
-      <InstantBookToggle/>
+      <InstantBookToggle />
     </StyledFilterTab>
   );
 }
