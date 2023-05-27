@@ -15,7 +15,7 @@ export default function InstantBookToggle() {
     <StyledInstantBookToggle>
       <div className="heading">
         <h1>Okamžitá rezervace</h1>
-        <Image src="/assets/blesk.png" width={16} height={16} alt="lightning" />
+        <Image src="/assets/blesk.png" width={25} height={25} alt="lightning" />
       </div>
       <DropdownToggle value={selectedOption} onChange={handleSelectedOption}>
         <option value="Ano">Ano</option>

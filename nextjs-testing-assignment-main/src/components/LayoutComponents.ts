@@ -7,7 +7,7 @@ export const StyledPriceSlider = styled.div`
   padding-top: 20px;
   padding-bottom: 20px;
   padding-right: 10px;
-  width: 30%;
+  width: 27%;
 
   h1 {
     font-size: 16px;
@@ -72,9 +72,10 @@ export const StyledVanTypes = styled.div`
   padding-top: 20px;
   padding-bottom: 20px;
   padding-right: 15px;
+  width: 60%;
 
   h1 {
-    font-size: 16px;
+    font-size: 1rem;
     color: #1f2244;
     text-align: left;
     letter-spacing: 0px;
@@ -90,11 +91,11 @@ export const StyledVanTypes = styled.div`
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 16px;
+    gap: 2%;
   }
 
   li {
-    width: 156px;
+    width: 25%;
     height: 88px;
     border: 2px solid #edeae3;
     border-radius: 8px;
@@ -102,7 +103,7 @@ export const StyledVanTypes = styled.div`
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    padding-right: 25px;
   }
 
   li:hover {
@@ -115,7 +116,7 @@ export const StyledVanTypes = styled.div`
 
   h3 {
     color: #1f2244;
-    font-size: 16px;
+    font-size: 1rem;
     margin-top: 0;
     margin-bottom: 4px;
     font-family: 'Roboto', sans-serif;
@@ -124,7 +125,7 @@ export const StyledVanTypes = styled.div`
 
   h4 {
     color: #9c8c8c;
-    font-size: 12px;
+    font-size: 0.8rem;
     margin-top: 4px;
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
@@ -133,17 +134,18 @@ export const StyledVanTypes = styled.div`
 
 export const StyledFilterTab = styled.div`
   display: flex;
-  gap: 16px;
+  gap: 1rem;
   border-top: 2px solid #edeae3;
   border-bottom: 2px solid #edeae3;
   padding: 0px 100px 0px 100px;
+  height: 55vh;
 `;
 
 export const StyledInstantBookToggle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 20%;
+  width: 13%;
   height: 85px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -151,12 +153,14 @@ export const StyledInstantBookToggle = styled.div`
   .heading {
     display: flex;
     align-items: center;
-    gap: 4px;
+    justify-content: flex-start;
+    gap: 4%;
+    width: 100%;
   }
 
   h1 {
-    font-size: 16px;
-    margin-bottom: 16px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
     color: #9c8c8c;
@@ -166,8 +170,8 @@ export const StyledInstantBookToggle = styled.div`
   }
 
   h1 img {
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
     margin-right: 4px;
   }
 
@@ -179,15 +183,15 @@ export const StyledInstantBookToggle = styled.div`
 `;
 
 export const DropdownToggle = styled.select`
-  padding: 8px;
+  padding: 13px;
   border: 2px solid #edeae3;
   border-radius: 8px;
   background-color: white;
   color: #1f2244;
-  font-size: 16px;
+  font-size: 1rem;
   cursor: pointer;
   height: 48px;
-  width: 176px;
+  width: 100%;
   appearance: none;
   background-image: url('/assets/arrow.svg');
   background-repeat: no-repeat;
