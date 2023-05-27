@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react';
 import { PriceRangeContainer, StyledPriceSlider, ValueSpan, ValuesDiv } from './LayoutComponents';
 import Slider from 'react-slider';
+import { PriceSliderProps } from '../../interfaces';
 
 const MIN = 1200;
 const MAX = 10000;
-
-export default function PriceSlider() {
+const PriceSlider: React.FC<PriceSliderProps> = ({ priceRange, setPriceRange }) => {
   const [values, setValues] = useState([MIN, MAX]);
-  console.log('values', values);
 
   useEffect(() => {
-    console.log(values);
-  }, [values]);
+    setValues(priceRange);
+  }, [priceRange]);
 
   return (
     <StyledPriceSlider>
@@ -19,7 +18,10 @@ export default function PriceSlider() {
         <h1>Cena za den</h1>
         <Slider
           className="slider"
-          onChange={setValues}
+          onChange={(values) => {
+            setValues(values as [number, number]);
+            setPriceRange(values as [number, number]);
+          }}
           value={values}
           min={MIN}
           max={MAX}
@@ -38,4 +40,5 @@ export default function PriceSlider() {
       </PriceRangeContainer>
     </StyledPriceSlider>
   );
-}
+};
+export default PriceSlider;

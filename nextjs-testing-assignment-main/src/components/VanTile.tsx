@@ -1,30 +1,75 @@
 import Image from 'next/image';
 import { StyledVanTile, VanFeatures, VanInfo } from './LayoutComponents';
+import { IVanTileProps } from '../../interfaces';
+import { useState } from 'react';
 
-export default function VanTile() {
+const VanTile: React.FC<IVanTileProps> = ({ van }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(1);
+  //Most of the pictures didnt get displayed at index 0, so I went for the safer option
+
+  const nextImage = () => {
+    setCurrentImageIndex((currentImageIndex + 1) % van.pictures.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((currentImageIndex - 1 + van.pictures.length) % van.pictures.length);
+  };
+
+  const currentImage =
+    van.pictures.length > 0 ? van.pictures[currentImageIndex] : '/assets/van.png';
+
+  const getCzechVehicleType = (vehicleType: string) => {
+    switch (van.vehicleType) {
+      case 'Intergrated':
+        return 'Integrál';
+      case 'BuiltIn':
+        return 'Vestavba';
+      case 'Alcove':
+        return 'Přívěs';
+      default:
+        return vehicleType;
+    }
+  };
+
   return (
     <StyledVanTile>
-      <Image src="/assets/van.png" width={390} height={190} alt="lightning" />
+      <div className="image-carousel">
+        <button className="prev" onClick={prevImage}></button>
+        <Image src={currentImage} width={450} height={230} alt="Van image" />
+        <button className="next" onClick={nextImage}></button>
+      </div>
       <VanInfo>
-        <h2>Van Type</h2>
-        <h3>Van Name</h3>
+        <h2>{getCzechVehicleType(van.vehicleType)}</h2>
+        <h3>{van.name}</h3>
         <VanFeatures>
-          <h4> Where from</h4>
+          <h4 className='location'>{van.location}</h4>
           <div className="equipment">
-           <span><Image src="/assets/Icon-seats.svg" width={20} height={20} alt="lightning" />6</span> 
-           <span><Image src="/assets/Icon-Bed.svg" width={20} height={20} alt="lightning" />4</span> 
-           <span> <Image src="/assets/Icon-Toilet.svg" width={20} height={20} alt="lightning" /></span>
-           <span><Image src="/assets/Icon-Shower.svg" width={20} height={20} alt="lightning" /></span> 
+            <Image src="/assets/Icon-seats.svg" width={20} height={20} alt="lightning" />
+            <p>{van.passengersCapacity}</p>
+
+            <Image src="/assets/Icon-Bed.svg" width={20} height={20} alt="lightning" />
+            <p>{van.sleepCapacity}</p>
+
+            {van.toilet && (
+              <Image src="/assets/Icon-Toilet.svg" width={20} height={20} alt="Toilet" />
+            )}
+            {van.shower && (
+              <Image src="/assets/Icon-Shower.svg" width={20} height={20} alt="Shower" />
+            )}
           </div>
         </VanFeatures>
         <div className="price">
-          <span>Cena od</span>
+          <span className="priceFrom">Cena od</span>
           <div>
-            <span>2750 Kč/den</span>
-            <Image src="/assets/blesk.svg" width={20} height={20} alt="lightning" />
+            <span>{van.price} Kč/den</span>
+            {van.instantBookable && (
+              <Image id="instant" src="/assets/blesk.svg" width={20} height={20} alt="lightning" />
+            )}
           </div>
         </div>
       </VanInfo>
     </StyledVanTile>
   );
-}
+};
+
+export default VanTile;

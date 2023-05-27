@@ -72,7 +72,7 @@ export const StyledVanTypes = styled.div`
   padding-top: 20px;
   padding-bottom: 20px;
   padding-right: 15px;
-  width: 60%;
+  width: 57%;
 
   h1 {
     font-size: 1rem;
@@ -96,14 +96,13 @@ export const StyledVanTypes = styled.div`
 
   li {
     width: 25%;
-    min-height: 45%;
+    min-height: 40%;
     border: 2px solid #edeae3;
     border-radius: 8px;
-    padding: 8px;
+    padding: 8px 15px 0px 10px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    padding-right: 25px;
   }
 
   li:hover {
@@ -144,7 +143,7 @@ export const StyledInstantBookToggle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 13%;
+  width: 15%;
   height: 85px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -153,7 +152,7 @@ export const StyledInstantBookToggle = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 4%;
+    gap: 1%;
     width: 100%;
   }
 
@@ -208,10 +207,66 @@ export const StyledVanTile = styled.div`
   border: 1px solid #edeae3;
   border-radius: 8px;
 
-  img {
+  .image-carousel img {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    object-fit: cover;
+    width: 100%;
   }
+
+  .image-carousel {
+    position: relative;
+
+    button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.15);
+      border: none;
+      width: 25px;
+      height: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+
+      &:before {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+      }
+
+      &.next {
+        right: 7px;
+
+        &:before {
+          border-left: 7px solid black;
+        }
+      }
+
+      &.prev {
+        left: 7px;
+
+        &:before {
+          border-right: 7px solid black;
+        }
+      }
+    }
+  }
+`;
+
+export const VanInfo = styled.div`
+  padding: 1% 4% 4% 4%;
 
   h2 {
     font-family: 'Roboto', sans-serif;
@@ -219,23 +274,30 @@ export const StyledVanTile = styled.div`
     font-size: 0.8rem;
     text-transform: uppercase;
     color: #ff5e55;
-    letter-spacing: 1px;
+    letter-spacing: px;
     line-height: 0.8rem;
   }
   h3 {
     font-weight: bold;
     font-size: 1.5rem;
     line-height: 1.5rem;
-    margin: 0 0 4% 0;
+    margin: 0 0 2% 0;
   }
-`;
 
-export const VanInfo = styled.div`
-  padding: 2% 4% 4% 4%;
-
-  .price{
-    display:flex;
+  .price {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
+    margin-top: 10px;
+    
+    .priceFrom {
+      color: #9c8c8c;
+      align-self: end;
+    }
+    div {
+      display: flex;
+      align-items: center;
+    }
   }
 `;
 
@@ -248,16 +310,18 @@ export const VanFeatures = styled.div`
   .equipment {
     display: flex;
     justify-content: flex-start;
-    gap: 5%;
+    gap: 2%;
     padding: 0.3rem;
+    padding-top: 0;
+    margin-top: 0;
   }
 
-  h4 {
+  .location {
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
     color: #1f2244;
     margin: 0;
-    padding: 2% 0%;
+    padding: 2% 0% 0% 0%;
   }
 `;
 
@@ -265,5 +329,34 @@ export const StyledVanList = styled.div`
   padding: 35px 6% 20px 6%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3%
+  gap: 2%;
+  padding-bottom: 40px;
+`;
+
+export const VanListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  button {
+    position: static;
+    bottom: 10px;
+    justify-self: center;
+    align-self: center;
+    border-radius: 8px;
+    border: #119383;
+    background-color: #119383;
+    color: white;
+    margin-top: auto;
+    margin-bottom: 2%;
+    min-height: 3rem;
+    width: 14vw;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    line-height: 1rem;
+  }
+  button:hover {
+    cursor: pointer;
+  }
 `;

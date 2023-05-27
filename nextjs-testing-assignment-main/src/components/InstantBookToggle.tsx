@@ -1,14 +1,18 @@
 import { ChangeEvent, useState } from 'react';
 import { DropdownToggle, StyledInstantBookToggle } from './LayoutComponents';
 import Image from 'next/image';
+import { InstantBookToggleProps } from '../../interfaces';
 
-export default function InstantBookToggle() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('Ano');
+const InstantBookToggle: React.FC<InstantBookToggleProps> = ({
+  isInstantBookable,
+  setIsInstantBookable,
+}) => {
+  const [selectedOption, setSelectedOption] = useState<boolean>(isInstantBookable);
 
   const handleSelectedOption = (event: ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(event.target.value);
-    setIsOpen(false);
+    const value = event.target.value === 'Ano';
+    setSelectedOption(value);
+    setIsInstantBookable(value);
   };
 
   return (
@@ -17,10 +21,12 @@ export default function InstantBookToggle() {
         <h1>Okamžitá rezervace</h1>
         <Image src="/assets/blesk.svg" width={20} height={20} alt="lightning" />
       </div>
-      <DropdownToggle value={selectedOption} onChange={handleSelectedOption}>
+      <DropdownToggle value={selectedOption ? 'Ano' : 'Ne'} onChange={handleSelectedOption}>
         <option value="Ano">Ano</option>
         <option value="Ne">Ne</option>
       </DropdownToggle>
     </StyledInstantBookToggle>
   );
-}
+};
+
+export default InstantBookToggle;
