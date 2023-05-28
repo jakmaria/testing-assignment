@@ -9,6 +9,12 @@ export const StyledPriceSlider = styled.div`
   padding-right: 10px;
   width: 27%;
 
+  @media (max-width: 400px) {
+    padding: 1% 2% 1% 4%;
+    width:95%;
+    border-right: none;
+  }
+
   h1 {
     font-size: 16px;
     color: var(--dark-grey);
@@ -74,6 +80,14 @@ export const StyledVanTypes = styled.div`
   padding-right: 15px;
   width: 57%;
 
+  @media (max-width: 400px) {
+    padding: 1% 7% 1% 4%;
+    width: 100%;
+    border-right: none;
+    border-top: 2px solid #edeae3;
+    border-bottom: 2px solid #edeae3;
+  }
+
   h1 {
     font-size: 1rem;
     color: #1f2244;
@@ -92,6 +106,14 @@ export const StyledVanTypes = styled.div`
     margin: 0;
     display: flex;
     gap: 2%;
+
+    @media (max-width: 400px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 5%;
+      padding-bottom: 4%;
+    }
   }
 
   li {
@@ -103,6 +125,12 @@ export const StyledVanTypes = styled.div`
     cursor: pointer;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 400px) {
+      padding: 6% 6% 1% 6%;
+      width: 100%;
+      margin-bottom: 4%;
+    }
   }
 
   li:hover {
@@ -137,6 +165,13 @@ export const StyledFilterTab = styled.div`
   border-top: 2px solid #edeae3;
   border-bottom: 2px solid #edeae3;
   padding: 0px 6% 0px 6%;
+
+  @media (max-width: 400px) {
+    display: flex;
+    flex-direction: column;
+    padding: 1% 1% 1% 1%;
+    justify-content: center;
+  }
 `;
 
 export const StyledInstantBookToggle = styled.div`
@@ -148,12 +183,24 @@ export const StyledInstantBookToggle = styled.div`
   padding-top: 20px;
   padding-bottom: 20px;
 
+  @media (max-width: 400px) {
+    padding: 1% 4% 30% 4%;
+    width: 55%;
+  }
+
   .heading {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 1%;
     width: 100%;
+
+    @media (max-width: 400px) {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8%;
+    }
   }
 
   h1 {
@@ -199,6 +246,10 @@ export const DropdownToggle = styled.select`
 
 export const StyledHeader = styled.div`
   padding: 20px 6% 20px 6%;
+  @media (max-width: 400px) {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const StyledVanTile = styled.div`
@@ -289,7 +340,7 @@ export const VanInfo = styled.div`
     align-items: center;
     justify-content: space-between;
     margin-top: 10px;
-    
+
     .priceFrom {
       color: #9c8c8c;
       align-self: end;
@@ -330,7 +381,14 @@ export const StyledVanList = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2%;
-  padding-bottom: 40px;
+  padding-bottom: 5%;
+
+  @media (max-width: 400px) {
+    display: flex;
+    flex-direction: column;
+    padding: 7% 5% 11% 5%;
+    gap: 1.7rem;
+  }
 `;
 
 export const VanListWrapper = styled.div`
@@ -339,7 +397,6 @@ export const VanListWrapper = styled.div`
   justify-content: space-between;
 
   button {
-    position: static;
     bottom: 10px;
     justify-self: center;
     align-self: center;
@@ -355,6 +412,11 @@ export const VanListWrapper = styled.div`
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
     line-height: 1rem;
+
+    @media (max-width: 400px) {
+      width: 40%;
+      margin-bottom: 10%;
+    }
   }
   button:hover {
     cursor: pointer;
