@@ -36,7 +36,7 @@ const VanList: React.FC<{
 };
 
 const StyledVanList = styled.div`
-  padding: % 6% 15% 6%;
+  padding: 2.5% 6% 15% 6%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2%;
@@ -53,7 +53,6 @@ const StyledVanList = styled.div`
 const VanListWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
   button {
     bottom: 10px;

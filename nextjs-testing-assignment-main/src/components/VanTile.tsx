@@ -145,9 +145,9 @@ const VanInfo = styled.div`
     font-size: 0.8rem;
     text-transform: uppercase;
     color: #ff5e55;
-    letter-spacing: px;
     line-height: 0.8rem;
   }
+  
   h3 {
     font-weight: bold;
     font-size: 1.5rem;
