@@ -139,6 +139,7 @@ export const StyledVanTypes = styled.div`
 
   li.selected {
     border-color: #119383;
+
   }
 
   h3 {

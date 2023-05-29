@@ -14,14 +14,21 @@ const Home: React.FC<IProps> = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://localhost:3000/api/data');
-      const data: IData = await response.json();
+      try {
+        const response = await fetch('http://localhost:3000/api/data');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data: IData = await response.json();
 
-      data.items = data.items.map((item) => {
-        return { ...item, id: uuidv4() };
-      });
+        data.items = data.items.map((item) => {
+          return { ...item, id: uuidv4() };
+        });
 
-      setData(data);
+        setData(data);
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
     };
 
     fetchData();
@@ -33,7 +40,7 @@ const Home: React.FC<IProps> = () => {
 
   return (
     <PageWrapper>
-      <Header></Header>
+      <Header />
       <FilterTab
         priceRange={priceRange}
         setPriceRange={setPriceRange}

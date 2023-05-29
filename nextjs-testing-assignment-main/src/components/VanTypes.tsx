@@ -33,7 +33,6 @@ const VanTypes: React.FC<VanTypesProps> = ({ selectedTypes, setSelectedTypes }) 
     setSelectedTypes(selected);
   }, [selected, setSelectedTypes]);
 
-  console.log('These are the selected types', selected);
   return (
     <StyledVanTypes>
       <h1>Typ karavanu</h1>
