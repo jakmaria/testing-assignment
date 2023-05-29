@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { VanTypesProps } from '../../interfaces';
 import { useEffect, useState } from 'react';
 
-const VanTypes: React.FC<VanTypesProps> = ({ selectedTypes, setSelectedTypes }) => {
+const VanTypes: React.FC<VanTypesProps> = ({ setSelectedTypes }) => {
   const [selected, setSelected] = useState<string[]>([]);
 
   const handleClick = (value: string) => {
@@ -70,7 +70,6 @@ const VanTypes: React.FC<VanTypesProps> = ({ selectedTypes, setSelectedTypes }) 
   );
 };
 
-
 const StyledVanTypes = styled.div`
   border-right: 2px solid #edeae3;
   padding-top: 20px;
@@ -137,7 +136,6 @@ const StyledVanTypes = styled.div`
 
   li.selected {
     border-color: #119383;
-
   }
 
   h3 {
